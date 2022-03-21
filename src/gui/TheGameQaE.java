@@ -22,7 +22,7 @@ import utils.ShutDown;
 import utils.Text;
 import utils.Vector2;
 
-public class JavaFX extends Application implements IUpdateAble {
+public class TheGameQaE extends Application implements IUpdateAble {
 
 	private Vector2 dimensionsInsets = new Vector2(16, 39);
 	private double pixesOnTheLeft = 180;
