@@ -55,7 +55,7 @@ public class CoordinatesList {
 			break;
 
 		case STATIC:
-			return new Vector2(this.coordinatesList.x, this.coordinatesList.y);
+			return getRelocateTypeCoordinates(this.coordinatesList.x, this.coordinatesList.y);
 
 		}
 
@@ -119,23 +119,7 @@ public class CoordinatesList {
 
 		}
 
-		switch (this.relocateTypeEnum) {
-
-		case BOTTOM_LEFT:
-			coordinateY -= this.dimensions.y;
-			break;
-
-		case CENTER:
-			coordinateX -= this.dimensions.x / 2;
-			coordinateY -= this.dimensions.y / 2;
-			break;
-
-		case TOP_LEFT:
-			break;
-
-		}
-
-		return new Vector2(coordinateX, coordinateY);
+		return getRelocateTypeCoordinates(coordinateX, coordinateY);
 
 	}
 
@@ -210,6 +194,28 @@ public class CoordinatesList {
 			break;
 
 		}
+
+	}
+
+	private Vector2 getRelocateTypeCoordinates(double coordinateX, double coordinateY) {
+
+		switch (this.relocateTypeEnum) {
+
+		case BOTTOM_LEFT:
+			coordinateY -= this.dimensions.y;
+			break;
+
+		case CENTER:
+			coordinateX -= this.dimensions.x / 2;
+			coordinateY -= this.dimensions.y / 2;
+			break;
+
+		case TOP_LEFT:
+			break;
+
+		}
+
+		return new Vector2(coordinateX, coordinateY);
 
 	}
 

@@ -8,15 +8,16 @@ public enum Credentials {
 
 	INSTANCE;
 
-	public final String primaryStageTitle = "JavaFX";
+	public final String primaryStageTitle = "The Game: Quick and Easy";
 	public final boolean colliderVisibility = true;
 	public final double gapBetweenBorders = 25, textHeight = 50,
 			selectImageViewAbleRatioDimensions = 0.5, selectImageViewAbleRatioCoordinateX = 0.5,
 			selectImageViewAbleRatioCoordinateY = 0.5, selectEventHandlerAbleWidth = 100,
 			animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
-	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast;
-	public Vector2 cTextPanel;
+	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast, dCard;
+	public Vector2 cTextPanel, cHandPlayerI, cHandPlayerII, cPileAscending, cPileDescending, cDeck;
+	private Vector2 dCardOriginal;
 
 	private Credentials() {
 
@@ -30,6 +31,57 @@ public enum Credentials {
 
 		this.cTextPanel = new Vector2(x, y);
 
+		this.dCardOriginal = new Vector2(250, 400);
+
+		// card height
+
+		y = this.dFrame.y;
+		y -= 2 * this.gapBetweenBorders;
+		y -= 2 * this.dGapBetweenComponents.y;
+		y /= 3;
+
+		x = this.dCardOriginal.x * y / this.dCardOriginal.y;
+		this.dCard = new Vector2(x, y);
+
+		// hand player I
+
+		x = this.dFrame.x / 2;
+		y = this.dFrame.y;
+		y -= this.gapBetweenBorders;
+		y -= this.dCard.y / 2;
+		this.cHandPlayerI = new Vector2(x, y);
+
+		// hand player II
+
+		x = this.dFrame.x / 2;
+		y = this.gapBetweenBorders;
+		y += this.dCard.y / 2;
+		this.cHandPlayerII = new Vector2(x, y);
+
+		// pile ascending
+
+		x = this.dFrame.x / 2;
+		x -= this.dGapBetweenComponents.x / 2;
+		x -= this.dCard.x / 2;
+		y = this.dFrame.y / 2;
+		this.cPileAscending = new Vector2(x, y);
+
+		// pile descending
+
+		x = this.dFrame.x / 2;
+		x += this.dGapBetweenComponents.x / 2;
+		x += this.dCard.x / 2;
+		y = this.dFrame.y / 2;
+		this.cPileDescending = new Vector2(x, y);
+
+		// deck
+
+		x = this.cPileAscending.x;
+		x -= this.dGapBetweenComponents.x * 5;
+		x -= this.dCard.x;
+		y = this.dFrame.y / 2;
+		this.cDeck = new Vector2(x, y);
+		
 	}
 
 }

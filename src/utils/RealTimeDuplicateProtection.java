@@ -1,8 +1,6 @@
 package utils;
 
-import utils.Interfaces.IUpdateAble;
-
-public enum RealTimeDuplicateProtection implements IUpdateAble {
+public enum RealTimeDuplicateProtection {
 
 	INSTANCE;
 
@@ -18,11 +16,6 @@ public enum RealTimeDuplicateProtection implements IUpdateAble {
 	}
 
 	public void executeDuplicateProtect() {
-		AnimationTimerFX.INSTANCE.updateNextFrame(this);
-	}
-
-	@Override
-	public void update() {
 
 		this.objectsChecking.clear();
 
@@ -35,8 +28,6 @@ public enum RealTimeDuplicateProtection implements IUpdateAble {
 					this.objectsChecking.addLast(object);
 
 		}
-
-		Logger.INSTANCE.logNewLine("real time duplicate protected");
 
 	}
 

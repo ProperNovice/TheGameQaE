@@ -19,15 +19,11 @@ public class ImageView implements INode {
 	private boolean isVisible = true;
 
 	public ImageView(String path, Object object) {
-		this(path, object, ELayerZ.DEFAULT);
+		this(path, ELayerZ.DEFAULT, object);
 	}
 
-	public ImageView(String path, Object object, ELayerZ eLayerZ) {
+	public ImageView(String path, ELayerZ eLayerZ, Object object) {
 		this(new Image(path), object, eLayerZ);
-	}
-
-	public ImageView(Image imageFront, Object object) {
-		this(imageFront, object, ELayerZ.DEFAULT);
 	}
 
 	public ImageView(Image imageFront, Object object, ELayerZ eLayerZ) {
@@ -233,12 +229,8 @@ public class ImageView implements INode {
 		setWidth(numbersPair.x);
 	}
 
-	public void setBack(Image imageBack) {
-		this.imageBack = imageBack;
-	}
-
 	public void setBack(String path) {
-		setBack(new Image(path));
+		this.imageBack = new Image(path);
 	}
 
 	public void flip() {

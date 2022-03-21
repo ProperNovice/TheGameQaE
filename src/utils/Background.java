@@ -7,7 +7,7 @@ import utils.Interfaces.IImageViewAble;
 public class Background implements IImageViewAble, IEventHandlerAble {
 
 	public Background() {
-		new ImageView("misc/backgroundDark.png", this, ELayerZ.BACKGROUND);
+		new ImageView("misc/backgroundDark.png", ELayerZ.BACKGROUND, this);
 	}
 
 	@Override

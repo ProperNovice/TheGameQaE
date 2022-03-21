@@ -1,7 +1,9 @@
 package gui;
 
 import controllers.Credentials;
+import controllers.InstantiateComponents;
 import controllers.Lists;
+import gameStates.JUnit;
 import gameStates.RestartGame;
 import gameStates.StartGame;
 import javafx.application.Application;
@@ -64,6 +66,8 @@ public class TheGameQaE extends Application implements IUpdateAble {
 
 		Lists.INSTANCE.instantiate();
 		Text.INSTANCE.instantiate();
+		InstantiateComponents.INSTANCE.instantiate();
+		Flow.INSTANCE.executeGameState(JUnit.class);
 		AnimationTimerFX.INSTANCE.updateNextFrame(this);
 
 	}

@@ -8,7 +8,7 @@ public class SelectImageView implements IImageViewAble, IEventHandlerAble {
 
 	public SelectImageView() {
 
-		new ImageView("misc/select.png", this, ELayerZ.SELECT_IMAGEVIEW);
+		new ImageView("misc/select.png", ELayerZ.SELECT_IMAGEVIEW, this);
 		this.getImageView().setVisible(false);
 
 	}
