@@ -37,6 +37,8 @@ public enum InstantiateComponents {
 			for (int counter = 1; counter <= 10; counter++)
 				Lists.INSTANCE.deck.getArrayList().addLast(new CardNumber(eColor, counter));
 
+		Lists.INSTANCE.deck.getArrayList().saveOriginal();
+
 	}
 
 }

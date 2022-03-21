@@ -14,10 +14,12 @@ public class JUnit extends AGameState {
 
 		addCardsToPlayerI();
 		addCardsToPlayerII();
+		addCardsToPileAscending();
+		addCardsToPileDescending();
 
 	}
 
-	private void addCardsToPlayerI() {
+	public void addCardsToPlayerI() {
 
 		Lists.INSTANCE.handPlayerI.getArrayList().addLast(removeCardFromDeck(EColor.BLUE, 4));
 		Lists.INSTANCE.handPlayerI.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 10));
@@ -26,7 +28,7 @@ public class JUnit extends AGameState {
 
 	}
 
-	private void addCardsToPlayerII() {
+	public void addCardsToPlayerII() {
 
 		Lists.INSTANCE.handPlayerII.getArrayList().addLast(removeCardFromDeck(EColor.BLUE, 5));
 		Lists.INSTANCE.handPlayerII.getArrayList().addLast(removeCardFromDeck(EColor.YELLOW, 1));
@@ -35,7 +37,25 @@ public class JUnit extends AGameState {
 
 	}
 
-	private CardNumber removeCardFromDeck(EColor eColor, int number) {
+	public void addCardsToPileAscending() {
+
+		Lists.INSTANCE.pileAscending.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 1));
+		Lists.INSTANCE.pileAscending.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 5));
+
+		Lists.INSTANCE.pileAscending.relocateImageViews();
+
+	}
+
+	public void addCardsToPileDescending() {
+
+		Lists.INSTANCE.pileDescending.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 9));
+		Lists.INSTANCE.pileDescending.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 6));
+
+		Lists.INSTANCE.pileDescending.relocateImageViews();
+
+	}
+
+	public CardNumber removeCardFromDeck(EColor eColor, int number) {
 
 		CardNumber cardNumber = null;
 

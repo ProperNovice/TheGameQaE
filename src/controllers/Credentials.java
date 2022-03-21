@@ -26,12 +26,12 @@ public enum Credentials {
 		double x = 0, y = 0;
 
 		this.dFrame = new Vector2(1920, 1080);
-		this.dGapBetweenComponents = new Vector2(4, 4);
+		this.dGapBetweenComponents = new Vector2(8, 8);
 		this.dGapBetweenComponentsLineCast = this.dGapBetweenComponents;
 
 		this.cTextPanel = new Vector2(x, y);
 
-		this.dCardOriginal = new Vector2(250, 400);
+		this.dCardOriginal = new Vector2(255, 400);
 
 		// card height
 
@@ -42,6 +42,15 @@ public enum Credentials {
 
 		x = this.dCardOriginal.x * y / this.dCardOriginal.y;
 		this.dCard = new Vector2(x, y);
+
+		// frame
+
+		y = 1080;
+		x = 4 * this.dCard.x;
+		x += 5 * this.dGapBetweenComponents.x;
+		x += 4 * this.gapBetweenBorders;
+		x = 1920;
+		this.dFrame = new Vector2(x, y);
 
 		// hand player I
 
@@ -77,11 +86,11 @@ public enum Credentials {
 		// deck
 
 		x = this.cPileAscending.x;
-		x -= this.dGapBetweenComponents.x * 5;
+		x -= this.dGapBetweenComponents.x * 2;
 		x -= this.dCard.x;
 		y = this.dFrame.y / 2;
 		this.cDeck = new Vector2(x, y);
-		
+
 	}
 
 }

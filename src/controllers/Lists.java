@@ -21,17 +21,8 @@ public enum Lists {
 	public void instantiate() {
 
 		createLists();
-		saveLists();
-		loadLists();
 
 		Logger.INSTANCE.logNewLine("lists instantiated -> " + this.lists.size());
-
-	}
-
-	private void saveLists() {
-
-		for (ArrayList<? extends Object> list : this.lists)
-			list.saveOriginal();
 
 	}
 
@@ -70,7 +61,21 @@ public enum Lists {
 
 		// pile ascending
 
+		this.pileAscending = new ListImageViewAbles<>(
+				new CoordinatesListBuilder()
+						.coordinatesNumbersPair(Credentials.INSTANCE.cPileAscending)
+						.relocateTypeEnum(RelocateTypeEnum.CENTER)
+						.rearrangeTypeEnum(RearrangeTypeEnum.STATIC).build(),
+				LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW);
+
 		// pile descending
+
+		this.pileDescending = new ListImageViewAbles<>(
+				new CoordinatesListBuilder()
+						.coordinatesNumbersPair(Credentials.INSTANCE.cPileDescending)
+						.relocateTypeEnum(RelocateTypeEnum.CENTER)
+						.rearrangeTypeEnum(RearrangeTypeEnum.STATIC).build(),
+				LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW);
 
 	}
 

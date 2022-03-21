@@ -18,17 +18,17 @@ public class ImageView implements INode {
 	private AnimationExecutionObject animationExecutionObject = null;
 	private boolean isVisible = true;
 
-	public ImageView(String path, Object object) {
-		this(path, ELayerZ.DEFAULT, object);
+	public ImageView(String fileNameFront, Object object) {
+		createImageView(fileNameFront, ELayerZ.DEFAULT, object);
 	}
 
-	public ImageView(String path, ELayerZ eLayerZ, Object object) {
-		this(new Image(path), object, eLayerZ);
+	public ImageView(String fileNameFront, ELayerZ eLayerZ, Object object) {
+		createImageView(fileNameFront, eLayerZ, object);
 	}
 
-	public ImageView(Image imageFront, Object object, ELayerZ eLayerZ) {
+	private void createImageView(String fileNameFront, ELayerZ eLayerZ, Object object) {
 
-		this.imageFront = imageFront;
+		this.imageFront = new Image(fileNameFront);
 
 		IImageViewAble imageViewAble = (IImageViewAble) object;
 
