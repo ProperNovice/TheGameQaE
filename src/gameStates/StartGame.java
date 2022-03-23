@@ -37,7 +37,7 @@ public class StartGame extends AGameState {
 		}
 
 		Modifiers.INSTANCE.numberOfPlayers = numberOfPlayers;
-		Players.INSTANCE.instantiate();
+		Players.INSTANCE.instantiate(numberOfPlayers);
 
 		Flow.INSTANCE.executeGameState(DealNewHands.class);
 

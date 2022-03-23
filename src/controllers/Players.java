@@ -20,7 +20,7 @@ public enum Players {
 
 	}
 
-	public void instantiate() {
+	public void instantiate(int numberOfPlayers) {
 
 		this.playerOrder.clear();
 
