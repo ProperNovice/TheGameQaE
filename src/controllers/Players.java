@@ -20,10 +20,14 @@ public enum Players {
 
 	}
 
-	public void instantiate() {
+	public void instantiate(int numberOfPlayers) {
 
 		this.playerOrder.clear();
-		this.playerOrder.addAll(EPlayer.values());
+
+		this.playerOrder.addLast(EPlayer.I);
+
+		if (numberOfPlayers == 2)
+			this.playerOrder.addLast(EPlayer.II);
 
 	}
 
@@ -43,7 +47,7 @@ public enum Players {
 
 		ArrayList<ListImageViewAbles<CardNumber>> hands = new ArrayList<>();
 
-		for (EPlayer ePlayer : this.playerLists)
+		for (EPlayer ePlayer : this.playerOrder)
 			hands.addLast(this.playerLists.getValue(ePlayer));
 
 		return hands;

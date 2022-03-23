@@ -51,7 +51,7 @@ public enum Credentials {
 		x = 4 * this.dCard.x;
 		x += 5 * this.dGapBetweenComponents.x;
 		x += 4 * this.gapBetweenBorders;
-		x = 1920;
+//		x = 1920;
 		this.dFrame = new Vector2(x, y);
 
 		// hand player I

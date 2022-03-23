@@ -13,6 +13,9 @@ public enum EText {
 	DEAL_NEW_HANDS("Deal new hands", TextTypeEnum.OPTION),
 	CHOOSE_CARD("Choose card", TextTypeEnum.INDICATOR),
 	CHOOSE_PILE("Choose pile", TextTypeEnum.INDICATOR),
+	CHOOSE_PLAYERS("Choose players", TextTypeEnum.INDICATOR),
+	ONE("One", TextTypeEnum.OPTION),
+	TWO("Two", TextTypeEnum.OPTION),
 	
 	;
 

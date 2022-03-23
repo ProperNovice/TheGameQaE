@@ -18,7 +18,7 @@ public class JUnit extends AGameState {
 			return;
 		}
 
-		Players.INSTANCE.instantiate();
+		Players.INSTANCE.instantiate(2);
 
 		addCardsToPlayerI();
 		addCardsToPlayerII();
