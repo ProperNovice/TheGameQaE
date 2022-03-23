@@ -8,12 +8,12 @@ import utils.Flow;
 
 public class JUnit extends AGameState {
 
-	private boolean run = true;
+	private boolean runJUnit = false;
 
 	@Override
 	public void execute() {
 
-		if (!this.run) {
+		if (!this.runJUnit) {
 			Flow.INSTANCE.executeGameState(StartGame.class);
 			return;
 		}
