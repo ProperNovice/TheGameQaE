@@ -13,7 +13,7 @@ public enum Credentials {
 	public final boolean colliderVisibility = true;
 	public final double gapBetweenBorders = 25, textHeight = 50,
 			selectImageViewAbleRatioDimensions = 0.5, selectImageViewAbleRatioCoordinateX = 0.5,
-			selectImageViewAbleRatioCoordinateY = 0.5, selectEventHandlerAbleWidth = 100,
+			selectImageViewAbleRatioCoordinateY = 0.25, selectEventHandlerAbleWidth = 100,
 			animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
 	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.PIVOT;
