@@ -9,6 +9,7 @@ public enum LayerZ implements IUpdateAble {
 
 	private HashMap<ELayerZ, ArrayList<ImageView>> layerZ = new HashMap<>();
 	private HashMap<ImageView, javafx.scene.image.ImageView> listImageViewsFX = new HashMap<>();
+	private ArrayList<TextIndicator> textIndicators = new ArrayList<>();
 
 	private LayerZ() {
 		addLayers();
@@ -27,6 +28,10 @@ public enum LayerZ implements IUpdateAble {
 		this.layerZ.getValue(eLayerZ).addLast(imageView);
 		this.listImageViewsFX.put(imageView, imageViewFX);
 
+	}
+
+	public void addTextIndicator(TextIndicator textIndicator) {
+		this.textIndicators.addLast(textIndicator);
 	}
 
 	public void toFrontImageview(ImageView imageView) {
@@ -101,6 +106,9 @@ public enum LayerZ implements IUpdateAble {
 				this.listImageViewsFX.getValue(imageView).toFront();
 
 			}
+
+		for (TextIndicator textIndicator : this.textIndicators)
+			textIndicator.toFront();
 
 	}
 

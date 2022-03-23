@@ -26,8 +26,10 @@ public enum InstantiateComponents {
 
 	private void createCardsSequence() {
 
-		new CardSequence(ESequence.ASCENDING);
-		new CardSequence(ESequence.DESCENDING);
+		CardSequence ascending = new CardSequence(ESequence.ASCENDING);
+		CardSequence descending = new CardSequence(ESequence.DESCENDING);
+
+		Piles.INSTANCE.setCardSequences(ascending, descending);
 
 	}
 

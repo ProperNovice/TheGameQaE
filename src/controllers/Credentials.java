@@ -1,6 +1,7 @@
 package controllers;
 
 import utils.ArrayList;
+import utils.Enums.RearrangeTypeEnum;
 import utils.SelectImageView;
 import utils.Vector2;
 
@@ -15,6 +16,7 @@ public enum Credentials {
 			selectImageViewAbleRatioCoordinateY = 0.5, selectEventHandlerAbleWidth = 100,
 			animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
+	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.PIVOT;
 	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast, dCard;
 	public Vector2 cTextPanel, cHandPlayerI, cHandPlayerII, cPileAscending, cPileDescending, cDeck;
 	private Vector2 dCardOriginal;
@@ -96,9 +98,7 @@ public enum Credentials {
 		x = this.dFrame.x / 2;
 		x += this.dCard.x;
 		x += this.dGapBetweenComponents.x * 3 / 2;
-		y = this.gapBetweenBorders;
-		y += this.dCard.y;
-		y += this.dGapBetweenComponents.y;
+		y = this.dFrame.y / 2;
 		this.cTextPanel = new Vector2(x, y);
 
 	}

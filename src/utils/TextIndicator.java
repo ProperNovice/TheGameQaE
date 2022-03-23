@@ -25,6 +25,7 @@ public class TextIndicator implements INode {
 		this.textOriginal += text;
 
 		ParentInstance.INSTANCE.get().addNode(this.text);
+		LayerZ.INSTANCE.addTextIndicator(this);
 
 	}
 

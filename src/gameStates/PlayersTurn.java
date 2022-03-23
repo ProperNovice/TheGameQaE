@@ -23,7 +23,10 @@ public class PlayersTurn extends AGameState {
 		for (CardNumber cardNumber : list)
 			handleCardIsPlayable(cardNumber);
 
-		Flow.INSTANCE.executeGameState(ChooseCardToPlay.class);
+		if (!Modifiers.INSTANCE.cardsPlayableInPiles.isEmpty())
+			Flow.INSTANCE.executeGameState(ChooseCardToPlay.class);
+		else
+			Flow.INSTANCE.executeGameState(EndGameLost.class);
 
 	}
 
@@ -33,19 +36,19 @@ public class PlayersTurn extends AGameState {
 		Logger.INSTANCE.log("checking card");
 		cardNumberPlayer.print();
 
-		ArrayList<ListImageViewAbles<CardNumber>> piles = new ArrayList<>();
+		ArrayList<ESequence> piles = new ArrayList<>();
 
 		// pile ascending
 
 		if (cardIsPlayableInPileAscending(cardNumberPlayer))
-			piles.addLast(Piles.INSTANCE.getPile(ESequence.ASCENDING));
+			piles.addLast(ESequence.ASCENDING);
 
 		// pile descending
 
 		Logger.INSTANCE.logNewLine("-");
 
 		if (cardIsPlayableInPileDescending(cardNumberPlayer))
-			piles.addLast(Piles.INSTANCE.getPile(ESequence.DESCENDING));
+			piles.addLast(ESequence.DESCENDING);
 
 		Logger.INSTANCE.logNewLine("*/");
 
@@ -63,7 +66,7 @@ public class PlayersTurn extends AGameState {
 
 		Logger.INSTANCE.logNewLine("pile ascending");
 
-		ListImageViewAbles<CardNumber> pile = Piles.INSTANCE.getPile(ESequence.ASCENDING);
+		ListImageViewAbles<CardNumber> pile = Piles.INSTANCE.getPileSequence(ESequence.ASCENDING);
 
 		if (pile.getArrayList().isEmpty()) {
 
@@ -112,7 +115,7 @@ public class PlayersTurn extends AGameState {
 
 		Logger.INSTANCE.logNewLine("pile descending");
 
-		ListImageViewAbles<CardNumber> pile = Piles.INSTANCE.getPile(ESequence.DESCENDING);
+		ListImageViewAbles<CardNumber> pile = Piles.INSTANCE.getPileSequence(ESequence.DESCENDING);
 
 		if (pile.getArrayList().isEmpty()) {
 

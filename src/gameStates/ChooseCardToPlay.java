@@ -4,6 +4,8 @@ import cards.CardNumber;
 import cards.CardPlayableInPile;
 import controllers.Modifiers;
 import enums.EText;
+import utils.Flow;
+import utils.Logger;
 import utils.SelectImageViewManager;
 
 public class ChooseCardToPlay extends AGameState {
@@ -22,10 +24,18 @@ public class ChooseCardToPlay extends AGameState {
 	@Override
 	protected void handleCardNumberPressedCurrentPlayer(CardNumber cardNumber) {
 
-//		if (!SelectImageViewManager.INSTANCE.isSelectedImageViewAble(cardNumber))
-//			return;
-		
-		cardNumber.reverseSelectImageView();
+		if (!SelectImageViewManager.INSTANCE.isSelectedImageViewAble(cardNumber))
+			return;
+
+		concealText();
+
+		Modifiers.INSTANCE.cardNumberSelected = cardNumber;
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+
+		Logger.INSTANCE.log("card chosen");
+		cardNumber.print();
+
+		Flow.INSTANCE.executeGameState(ChoosePileToPlay.class);
 
 	}
 

@@ -1,18 +1,17 @@
 package cards;
 
+import enums.ESequence;
 import utils.ArrayList;
-import utils.ListImageViewAbles;
 
 public class CardPlayableInPile {
 
 	private CardNumber cardNumber = null;
-	private ArrayList<ListImageViewAbles<CardNumber>> piles = new ArrayList<>();
+	private ArrayList<ESequence> eSequencePiles = new ArrayList<>();
 
-	public CardPlayableInPile(CardNumber cardNumber,
-			ArrayList<ListImageViewAbles<CardNumber>> piles) {
+	public CardPlayableInPile(CardNumber cardNumber, ArrayList<ESequence> eSequencePiles) {
 
 		this.cardNumber = cardNumber;
-		this.piles.addAll(piles);
+		this.eSequencePiles.addAll(eSequencePiles);
 
 	}
 
@@ -20,8 +19,8 @@ public class CardPlayableInPile {
 		return this.cardNumber;
 	}
 
-	public ArrayList<ListImageViewAbles<CardNumber>> getPiles() {
-		return this.piles;
+	public ArrayList<ESequence> getPiles() {
+		return this.eSequencePiles;
 	}
 
 }

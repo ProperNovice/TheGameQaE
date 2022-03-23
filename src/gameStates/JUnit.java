@@ -13,8 +13,10 @@ public class JUnit extends AGameState {
 	@Override
 	public void execute() {
 
-		if (!this.run)
+		if (!this.run) {
+			Flow.INSTANCE.executeGameState(StartGame.class);
 			return;
+		}
 
 		Players.INSTANCE.instantiate();
 
@@ -23,14 +25,14 @@ public class JUnit extends AGameState {
 		addCardsToPileAscending();
 		addCardsToPileDescending();
 		
-		Flow.INSTANCE.executeGameState(PlayersTurn.class);
+		Flow.INSTANCE.executeGameState(EndGameWon.class);
 
 	}
 
 	public void addCardsToPlayerI() {
 
 		Lists.INSTANCE.handPlayerI.getArrayList().addLast(removeCardFromDeck(EColor.BLUE, 6));
-		Lists.INSTANCE.handPlayerI.getArrayList().addLast(removeCardFromDeck(EColor.RED, 5));
+		Lists.INSTANCE.handPlayerI.getArrayList().addLast(removeCardFromDeck(EColor.GRAY, 5));
 
 		Lists.INSTANCE.handPlayerI.relocateImageViews();
 
@@ -57,7 +59,7 @@ public class JUnit extends AGameState {
 	public void addCardsToPileDescending() {
 
 //		Lists.INSTANCE.pileDescending.getArrayList().addLast(removeCardFromDeck(EColor.RED, 2));
-		Lists.INSTANCE.pileDescending.getArrayList().addLast(removeCardFromDeck(EColor.BLUE, 3));
+		Lists.INSTANCE.pileDescending.getArrayList().addLast(removeCardFromDeck(EColor.RED, 7));
 
 		Lists.INSTANCE.pileDescending.relocateImageViews();
 

@@ -2,6 +2,7 @@ package utils;
 
 import controllers.Credentials;
 import enums.EText;
+import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.TextTypeEnum;
 
 public enum Text {
@@ -41,16 +42,23 @@ public enum Text {
 
 	private void showText() {
 
+		double x = Credentials.INSTANCE.cTextPanel.x;
+		double y = Credentials.INSTANCE.cTextPanel.y;
+
+		if (Credentials.INSTANCE.rearrangeTypeEnumText.equals(RearrangeTypeEnum.PIVOT)) {
+
+			double totalHeight = this.textEnumShowing.size() * Credentials.INSTANCE.textHeight;
+			y -= totalHeight / 2;
+
+		}
+
 		for (TextEnum textEnum : this.textEnumShowing) {
 
 			textEnum.toFront();
 			textEnum.setVisible(true);
-
-			double x = Credentials.INSTANCE.cTextPanel.x;
-			double y = Credentials.INSTANCE.cTextPanel.y;
-			y += Credentials.INSTANCE.textHeight * this.textEnumShowing.indexOf(textEnum);
-
 			textEnum.relocate(x, y);
+
+			y += Credentials.INSTANCE.textHeight;
 
 		}
 

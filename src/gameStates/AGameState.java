@@ -2,6 +2,7 @@ package gameStates;
 
 import cards.CardNumber;
 import controllers.Players;
+import enums.ESequence;
 import enums.EText;
 import javafx.scene.input.KeyCode;
 import utils.KeyCodeHandler;
@@ -55,6 +56,10 @@ public abstract class AGameState {
 	}
 
 	protected void handleCardNumberPressedCurrentPlayer(CardNumber cardNumber) {
+
+	}
+
+	public void handlePilePressed(ESequence eSequence) {
 
 	}
 
