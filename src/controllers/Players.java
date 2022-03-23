@@ -20,13 +20,13 @@ public enum Players {
 
 	}
 
-	public void instantiate(int numberOfPlayers) {
+	public void instantiate() {
 
 		this.playerOrder.clear();
 
 		this.playerOrder.addLast(EPlayer.I);
 
-		if (numberOfPlayers == 2)
+		if (Modifiers.INSTANCE.numberOfPlayers == 2)
 			this.playerOrder.addLast(EPlayer.II);
 
 	}

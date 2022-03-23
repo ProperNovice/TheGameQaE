@@ -1,6 +1,7 @@
 package gameStates;
 
 import controllers.Lists;
+import controllers.Modifiers;
 import controllers.Players;
 import enums.EText;
 import utils.Flow;
@@ -35,7 +36,8 @@ public class StartGame extends AGameState {
 
 		}
 
-		Players.INSTANCE.instantiate(numberOfPlayers);
+		Modifiers.INSTANCE.numberOfPlayers = numberOfPlayers;
+		Players.INSTANCE.instantiate();
 
 		Flow.INSTANCE.executeGameState(DealNewHands.class);
 

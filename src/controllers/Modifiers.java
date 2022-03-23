@@ -11,6 +11,7 @@ public enum Modifiers implements ISaveLoadStateAble {
 
 	public ArrayList<CardPlayableInPile> cardsPlayableInPiles = new ArrayList<>();
 	public CardNumber cardNumberSelected = null;
+	public int numberOfPlayers = -1;
 
 	private Modifiers() {
 		saveOriginal();
