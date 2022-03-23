@@ -5,7 +5,6 @@ import controllers.InstantiateComponents;
 import controllers.Lists;
 import gameStates.JUnit;
 import gameStates.RestartGame;
-import gameStates.StartGame;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -67,7 +66,6 @@ public class TheGameQaE extends Application implements IUpdateAble {
 		Lists.INSTANCE.instantiate();
 		Text.INSTANCE.instantiate();
 		InstantiateComponents.INSTANCE.instantiate();
-		Flow.INSTANCE.executeGameState(JUnit.class);
 		AnimationTimerFX.INSTANCE.updateNextFrame(this);
 
 	}
@@ -118,7 +116,7 @@ public class TheGameQaE extends Application implements IUpdateAble {
 
 	@Override
 	public void update() {
-		Flow.INSTANCE.executeGameState(StartGame.class);
+		Flow.INSTANCE.executeGameState(JUnit.class);
 	}
 
 }

@@ -91,6 +91,16 @@ public enum Credentials {
 		y = this.dFrame.y / 2;
 		this.cDeck = new Vector2(x, y);
 
+		// text panel
+
+		x = this.dFrame.x / 2;
+		x += this.dCard.x;
+		x += this.dGapBetweenComponents.x * 3 / 2;
+		y = this.gapBetweenBorders;
+		y += this.dCard.y;
+		y += this.dGapBetweenComponents.y;
+		this.cTextPanel = new Vector2(x, y);
+
 	}
 
 }

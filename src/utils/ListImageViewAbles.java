@@ -30,6 +30,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 			int capacity) {
 
 		this.arrayList = new ArrayListImageView<T>();
+		this.arrayList.setCapacity(capacity);
 
 		this.coordinatesList = coordinatesList;
 		this.coordinatesList.setList(this.arrayList);

@@ -2,7 +2,9 @@ package cards;
 
 import controllers.Credentials;
 import enums.EColor;
+import utils.Flow;
 import utils.ImageView;
+import utils.Logger;
 
 public class CardNumber extends Card {
 
@@ -32,6 +34,19 @@ public class CardNumber extends Card {
 
 	public int getNumber() {
 		return this.number;
+	}
+
+	public void print() {
+
+		Logger.INSTANCE.log("color: " + this.eColor.getString());
+		Logger.INSTANCE.log("number: " + this.number);
+		Logger.INSTANCE.newLine();
+
+	}
+
+	@Override
+	public void handleMouseButtonPressedPrimary() {
+		Flow.INSTANCE.getGameStateCurrent().handleCardNumberPressed(this);
 	}
 
 }

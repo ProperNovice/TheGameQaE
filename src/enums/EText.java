@@ -9,7 +9,11 @@ public enum EText {
 	RESTART("Restart", TextTypeEnum.OPTION),
 	YOU_WON("You won", TextTypeEnum.INDICATOR),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
-
+	START_GAME("Start game", TextTypeEnum.OPTION),
+	DEAL_NEW_HANDS("Deal new hands", TextTypeEnum.OPTION),
+	CHOOSE_CARD("Choose card", TextTypeEnum.INDICATOR),
+	CHOOSE_PILE("Choose pile", TextTypeEnum.INDICATOR),
+	
 	;
 
 	private TextTypeEnum textTypeEnum = null;

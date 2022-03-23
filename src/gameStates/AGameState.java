@@ -1,5 +1,7 @@
 package gameStates;
 
+import cards.CardNumber;
+import controllers.Players;
 import enums.EText;
 import javafx.scene.input.KeyCode;
 import utils.KeyCodeHandler;
@@ -23,7 +25,7 @@ public abstract class AGameState {
 	public final void executeKeyPressed(KeyCode keyCode) {
 
 		int keyCodeID = KeyCodeHandler.INSTANCE.getKeyCodeInt(keyCode);
-		
+
 		if (keyCodeID == -1)
 			return;
 
@@ -43,6 +45,17 @@ public abstract class AGameState {
 
 	protected final void concealText() {
 		Text.INSTANCE.concealText();
+	}
+
+	public final void handleCardNumberPressed(CardNumber cardNumber) {
+
+		if (Players.INSTANCE.getPlayerCurrentHand().getArrayList().contains(cardNumber))
+			handleCardNumberPressedCurrentPlayer(cardNumber);
+
+	}
+
+	protected void handleCardNumberPressedCurrentPlayer(CardNumber cardNumber) {
+
 	}
 
 }

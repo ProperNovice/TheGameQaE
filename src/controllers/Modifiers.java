@@ -1,10 +1,16 @@
 package controllers;
 
+import cards.CardNumber;
+import cards.CardPlayableInPile;
+import utils.ArrayList;
 import utils.Interfaces.ISaveLoadStateAble;
 
 public enum Modifiers implements ISaveLoadStateAble {
 
 	INSTANCE;
+
+	public ArrayList<CardPlayableInPile> cardsPlayableInPiles = new ArrayList<>();
+	public CardNumber cardNumberSelected = null;
 
 	private Modifiers() {
 		saveOriginal();
