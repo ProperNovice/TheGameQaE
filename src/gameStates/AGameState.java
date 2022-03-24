@@ -1,6 +1,7 @@
 package gameStates;
 
 import cards.CardNumber;
+import controllers.Lists;
 import controllers.Players;
 import enums.ESequence;
 import enums.EText;
@@ -52,6 +53,10 @@ public abstract class AGameState {
 
 		if (Players.INSTANCE.getPlayerCurrentHand().getArrayList().contains(cardNumber))
 			handleCardNumberPressedCurrentPlayer(cardNumber);
+		else if (Lists.INSTANCE.pileAscending.getArrayList().contains(cardNumber))
+			handlePilePressed(ESequence.ASCENDING);
+		else if (Lists.INSTANCE.pileDescending.getArrayList().contains(cardNumber))
+			handlePilePressed(ESequence.DESCENDING);
 
 	}
 
