@@ -1,6 +1,5 @@
 package gameStates;
 
-import cards.CardPlayableInPile;
 import controllers.Modifiers;
 import controllers.Piles;
 import controllers.Players;
@@ -16,17 +15,8 @@ public class ChoosePileToPlay extends AGameState {
 
 		EText.CHOOSE_PILE.show();
 
-		for (CardPlayableInPile cardPlayableInPile : Modifiers.INSTANCE.cardsPlayableInPiles) {
-
-			if (!Modifiers.INSTANCE.cardNumberSelected.equals(cardPlayableInPile.getCardNumber()))
-				continue;
-
-			for (ESequence eSequence : cardPlayableInPile.getPiles())
-				Piles.INSTANCE.setPileSelected(eSequence);
-
-			break;
-
-		}
+		for (ESequence eSequence : Modifiers.INSTANCE.cardsPlayableInPiles.getFirst().getPiles())
+			Piles.INSTANCE.setPileSelected(eSequence);
 
 	}
 

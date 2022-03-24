@@ -35,6 +35,16 @@ public class ChooseCardToPlay extends AGameState {
 		Logger.INSTANCE.log("card chosen");
 		cardNumber.print();
 
+		for (CardPlayableInPile cardPlayableInPile : Modifiers.INSTANCE.cardsPlayableInPiles
+				.clone()) {
+
+			if (Modifiers.INSTANCE.cardNumberSelected.equals(cardPlayableInPile.getCardNumber()))
+				continue;
+
+			Modifiers.INSTANCE.cardsPlayableInPiles.remove(cardPlayableInPile);
+
+		}
+
 		Flow.INSTANCE.executeGameState(ChoosePileToPlay.class);
 
 	}
